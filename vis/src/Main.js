@@ -1,4 +1,4 @@
-var Joint = require("./joint").Joint;
+var Joint = require("./Joint").Joint;
 
 var scene, camera, renderer;
 var geometry, material, mesh;
