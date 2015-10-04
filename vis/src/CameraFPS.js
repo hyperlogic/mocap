@@ -34,15 +34,17 @@ exports.CameraFPS.prototype.update = function (dt) {
     var dp = new THREE.Vector3(0, 0, 0);
     dp.addScaledVector(this._desiredLinearVelocity, dt);
     dp.applyQuaternion(q);
+
+    // update position
     this.camera.position.add(dp);
 
+    // calculate a quaternion from angular velocity
     var dq = new THREE.Quaternion();
     var angularSpeed = this._desiredAngularVelocity.length();
     var axis = this._desiredAngularVelocity.clone().normalize();
     dq.setFromAxisAngle(axis, angularSpeed * dt);
 
-    console.log("dq = (" + dq.x + ", " + dq.y + ", " + dq.z + ", " + dq.w + ")");
-
+    // update rotation
     this.camera.rotation.setFromQuaternion(q.multiply(dq));
 };
 
