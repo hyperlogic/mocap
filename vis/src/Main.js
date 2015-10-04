@@ -24,7 +24,7 @@ init = function init() {
     testJoint = new Joint(scene);
 
     animate();
-}
+};
 
 function animate() {
 
